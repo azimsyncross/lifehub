@@ -144,7 +144,7 @@ export default function Header() {
                   !isScrolled ? "bg-white/10 hover:bg-white/20 text-black" : ""
                 }
               >
-                <Link href="/login">Login</Link>
+                <Link href="/auth">Login</Link>
               </Button>
             )}
           </div>

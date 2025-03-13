@@ -12,7 +12,7 @@ const categories = [
     image: "/categories/fs_t1.webp",
     banner: "/categories/b5.webp",
     description: "Elegant styles for every occasion",
-    link: "/categories/dresses",
+    link: "/categories/clothing",
     color: "bg-rose-100",
   },
   {
