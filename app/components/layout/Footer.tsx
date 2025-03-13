@@ -156,9 +156,9 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-sm"
         >
           <p className="text-center md:text-left">
-            © {new Date().getFullYear()} FinesseFinds.
+            © {new Date().getFullYear()} LifeHub LLC
             <span className="mx-2">|</span>
-            Crafted with care in China
+            All Rights Reserved
           </p>
           <div className="flex space-x-6">
             {["Privacy Policy", "Terms of Service", "Legal"].map((item) => (
