@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Heart, ShoppingBag } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 interface ProductCardProps {
   product: {
@@ -49,10 +48,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           whileHover="hover"
           className="relative aspect-square w-full"
         >
-          <Image
+          <img
             src={product.images[0].url}
             alt={product.images[0].alt}
-            fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

@@ -5,7 +5,6 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Expand } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 interface ProductImageGalleryProps {
   images: Array<{
@@ -32,10 +31,9 @@ export default function ProductImageGallery({
             className="relative aspect-square rounded-xl overflow-hidden cursor-zoom-in bg-gray-100"
             whileHover="hover"
           >
-            <Image
+            <img
               src={selectedImage.url}
               alt={selectedImage.alt}
-              fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 75vw"
             />
@@ -54,10 +52,9 @@ export default function ProductImageGallery({
         {/* Fullscreen View */}
         <DialogContent className="max-w-[90vw] h-[90vh] p-0 bg-white">
           <div className="relative w-full h-full">
-            <Image
+            <img
               src={selectedImage.url}
               alt={selectedImage.alt}
-              fill
               className="object-contain"
             />
           </div>
@@ -78,10 +75,9 @@ export default function ProductImageGallery({
             )}
             whileHover={{ scale: 1.05 }}
           >
-            <Image
+            <img
               src={image.url}
               alt={image.alt}
-              fill
               className="object-cover object-center"
             />
           </motion.button>

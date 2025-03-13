@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -137,12 +136,10 @@ export default function CategoriesCarousel() {
               className="absolute inset-0"
             >
               <div className="relative h-full rounded-3xl overflow-hidden shadow-xl">
-                <Image
+                <img
                   src={categories[activeIndex].banner}
                   alt={categories[activeIndex].name}
-                  fill
                   className="object-cover"
-                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
@@ -222,10 +219,9 @@ export default function CategoriesCarousel() {
                       : "opacity-80 hover:opacity-100"
                   } transition-all`}
                 >
-                  <Image
+                  <img
                     src={category.image}
                     alt={category.name}
-                    fill
                     className="object-cover"
                   />
                   <div

@@ -5,7 +5,6 @@ import { useShopping } from "@/app/contexts/shopping-context";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, ShoppingBag } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -32,13 +31,23 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50">
-            <Image
-              src={isScrolled ? "/logo.png" : "/logo-1.png"}
-              alt="Logo"
-              width={160}
-              height={40}
-              className="transition-all duration-300"
-            />
+            {isScrolled ? (
+              <img
+                src="/logo.png"
+                alt="Logo"
+                width={160}
+                height={40}
+                className="transition-all duration-300"
+              />
+            ) : (
+              <img
+                src="/logo-1.png"
+                alt="Logo"
+                width={160}
+                height={40}
+                className="transition-all duration-300"
+              />
+            )}
           </Link>
 
           {/* Navigation */}

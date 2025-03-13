@@ -1,22 +1,20 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useShopping } from '@/app/contexts/shopping-context'
-import { Button } from '@/components/ui/button'
+import { useShopping } from "@/app/contexts/shopping-context";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Trash2, ArrowRight } from 'lucide-react'
-
+} from "@/components/ui/select";
+import { ArrowRight, Trash2 } from "lucide-react";
+import Link from "next/link";
 
 export default function CartPage() {
-  const { cart, removeFromCart, updateCartItemQuantity, cartTotal } = useShopping()
+  const { cart, removeFromCart, updateCartItemQuantity, cartTotal } =
+    useShopping();
 
   if (cart.length === 0) {
     return (
@@ -33,7 +31,7 @@ export default function CartPage() {
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -51,10 +49,9 @@ export default function CartPage() {
                 className="flex gap-6 py-6 border-b"
               >
                 <div className="relative aspect-square w-24 rounded-lg overflow-hidden">
-                  <Image
+                  <img
                     src={item.images[0].url}
                     alt={item.images[0].alt}
-                    fill
                     className="object-cover"
                   />
                 </div>
@@ -76,12 +73,15 @@ export default function CartPage() {
 
                   <div className="mt-4 flex items-center gap-4">
                     <div className="flex items-center gap-2">
-                      <label htmlFor={`quantity-${item.id}`} className="text-sm text-gray-600">
+                      <label
+                        htmlFor={`quantity-${item.id}`}
+                        className="text-sm text-gray-600"
+                      >
                         Qty:
                       </label>
                       <Select
                         value={item.quantity.toString()}
-                        onValueChange={(value) => 
+                        onValueChange={(value) =>
                           updateCartItemQuantity(item.id, parseInt(value))
                         }
                       >
@@ -128,12 +128,14 @@ export default function CartPage() {
               <div className="flex justify-between">
                 <span className="text-base text-gray-600">Shipping</span>
                 <span className="text-base font-medium text-gray-900">
-                  {cartTotal >= 100 ? 'Free' : '$10'}
+                  {cartTotal >= 100 ? "Free" : "$10"}
                 </span>
               </div>
               <div className="pt-4 border-t border-gray-200">
                 <div className="flex justify-between">
-                  <span className="text-base font-medium text-gray-900">Total</span>
+                  <span className="text-base font-medium text-gray-900">
+                    Total
+                  </span>
                   <span className="text-base font-medium text-gray-900">
                     ${cartTotal >= 100 ? cartTotal : cartTotal + 10}
                   </span>
@@ -155,5 +157,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-  )
-} 
+  );
+}

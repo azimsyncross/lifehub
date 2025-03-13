@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type PromoCardProps = {
@@ -21,10 +20,9 @@ export default function PromoCard({
       href={link}
       className="relative group overflow-hidden rounded-2xl aspect-[2/1] w-full sm:w-[48%] transition-shadow hover:shadow-lg"
     >
-      <Image
+      <img
         src={imageUrl}
         alt={title}
-        fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
       />

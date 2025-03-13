@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -8,10 +8,9 @@ export default function AboutPage() {
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Image Section */}
         <div className="relative aspect-square rounded-xl overflow-hidden">
-          <Image
+          <img
             src="/about.webp"
             alt="About Our Store"
-            fill
             className="object-cover"
           />
         </div>

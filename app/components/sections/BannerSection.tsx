@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 interface Category {
@@ -46,7 +45,7 @@ export default function BannerSection(): JSX.Element {
               href={category.href}
               className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
             >
-              <Image
+              <img
                 src={category.image}
                 alt={category.title}
                 width={400}

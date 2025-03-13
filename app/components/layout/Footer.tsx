@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import Image from "next/image";
+
 import Link from "next/link";
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
             className="col-span-2 space-y-6"
           >
             <Link href="/" className="block">
-              <Image
+              <img
                 src="/logo.png"
                 alt="Logo"
                 width={200}
