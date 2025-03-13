@@ -50,14 +50,13 @@ export default function AuthLayout({
   }
 
   return (
-    <div className="container relative min-h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+    <div className="container relative min-h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0 py-24">
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-black/40">
           <img
             src="/about.webp"
             alt="Authentication background"
-            className="object-cover opacity-90"
-            
+            className="object-cover opacity-90 w-full"
           />
         </div>
         <div className="relative z-20 flex items-center text-lg font-medium">
@@ -73,12 +72,12 @@ export default function AuthLayout({
           >
             <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
           </svg>
-          FinesseFinds
+          LifeHub
         </div>
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;This store has transformed how I shop for shoes. The
+              &ldquo;This store has transformed how I shop for outfits. The
               quality and service are unmatched!&rdquo;
             </p>
             <footer className="text-sm">Sofia Davis</footer>
@@ -89,7 +88,7 @@ export default function AuthLayout({
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Welcome to FinesseFinds
+              Welcome to LifeHub
             </h1>
             <p className="text-sm text-muted-foreground">
               Enter your credentials to continue
