@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "token": "1234567890",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "1234567890",
+    "timestamp": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "azim",
+    "email": "azim@stsvinc.com",
+    "password": "asdf1234",
+    "timestamp": "2025-01-15T05:07:49.675Z",
+    "token": null
+  },
+  {
+    "id": 3,
+    "name": "marf's Team",
+    "email": "marf@stsvinc.com",
+    "password": "asdf1234",
+    "timestamp": "2025-01-15T05:15:37.749Z",
+    "token": "07466a9aab6cd84149cb649b5a61b92861703a015777b0d00874d442cafc2cb0",
+    "phone": "018236789",
+    "address": "Karimpur, Narsingdi"
+  }
+]
