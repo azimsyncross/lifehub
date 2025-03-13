@@ -11,8 +11,44 @@ import {
   Twitter,
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    consent: false,
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
+    "idle"
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    setTimeout(() => {
+      setStatus("success");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        consent: false,
+      });
+
+      setTimeout(() => setStatus("idle"), 3000); // Reset message after 3s
+    }, 2000);
+  };
+
   return (
     <footer className="bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:px-16">
@@ -209,7 +245,7 @@ export default function Footer() {
                 Stay Connected
               </h4>
 
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     Join Our Exclusive Newsletter
@@ -226,27 +262,43 @@ export default function Footer() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
+                      name="firstName"
                       placeholder="First Name"
-                      className="py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent transition-all"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all"
+                      required
                     />
                     <input
                       type="text"
+                      name="lastName"
                       placeholder="Last Name"
-                      className="py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent transition-all"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all"
+                      required
                     />
                   </div>
 
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address"
-                    className="w-full py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent transition-all"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full py-3 px-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all"
+                    required
                   />
 
                   <div className="flex items-start space-x-3 mt-2">
                     <input
                       type="checkbox"
+                      name="consent"
                       id="newsletter-consent"
+                      checked={formData.consent}
+                      onChange={handleChange}
                       className="mt-1"
+                      required
                     />
                     <label
                       htmlFor="newsletter-consent"
@@ -265,16 +317,26 @@ export default function Footer() {
                   </div>
                 </div>
 
-                <button className="bg-gray-900 text-white py-3 px-8 rounded-lg hover:bg-gray-800 transition-colors font-medium flex items-center justify-center gap-2 w-full md:w-auto">
-                  Subscribe Now
+                <button
+                  type="submit"
+                  className="bg-gray-900 text-white py-3 px-8 rounded-lg hover:bg-gray-800 transition-colors font-medium flex items-center justify-center gap-2 w-full md:w-auto disabled:opacity-60"
+                  disabled={status === "submitting"}
+                >
+                  {status === "submitting" ? "Submitting..." : "Subscribe Now"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
+
+                {status === "success" && (
+                  <p className="text-green-600 text-sm font-medium">
+                    ✅ You’ve successfully subscribed to our newsletter!
+                  </p>
+                )}
 
                 <p className="text-gray-500 text-xs italic">
                   We respect your privacy and will never share your information
                   with third parties.
                 </p>
-              </div>
+              </form>
             </motion.div>
           </div>
         </div>
